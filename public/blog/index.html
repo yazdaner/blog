@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>yazdansite.ir</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE"
+      crossorigin="anonymous"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="loading">
+      <div class="bg-spiner">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <section x-data="toggleSidebar">
+      <section x-cloak class="sidebar scroller" :class="open || 'inactive'">
+        <div
+          class="d-flex align-items-center justify-content-between justify-content-lg-center"
+        >
+          <h4 class="fw-bold text-white">yazdansite.ir</h4>
+          <i
+            class="bi bi-x fs-1 d-lg-none cursor-pointer text-white"
+            @click="toggle"
+          ></i>
+        </div>
+        <div class="mt-4">
+          <div class="search mb-4">
+            <div class="input-group">
+              <input
+                class="form-control"
+                type="text"
+                name=""
+                placeholder="جستجو..."
+                aria-label="Recipient's "
+                aria-describedby="my-addon"
+              />
+              <i class="search-icon fs-6 bi bi-search cursor-pointer"></i>
+            </div>
+          </div>
+          <ul class="list-unstyled p-0">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="">
+                <i class="me-2 bi bi-house"></i>
+                <span>خانه</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="">
+                <i class="me-2 bi bi-file-earmark-person"></i>
+                <span>درباره من</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="">
+                <i class="me-2 bi bi-card-checklist"></i>
+                <span>نمونه کار</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="">
+                <i class="me-2 bi bi-telephone"></i>
+                <span>تماس با من</span>
+              </a>
+            </li>
+            <li x-data="toggleSubmenu" class="sidebar-item">
+              <div @click="toggle" class="sidebar-link">
+                <i class="me-2 bi bi-grid-fill"></i>
+                <span>بلاگ</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+              </div>
+              <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                <li x-data="toggleSubmenu" class="sidebar-item ms-3">
+                  <div @click="toggle" class="sidebar-link">
+                    <span>بلاگ</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                  </div>
+                  <ul
+                    x-show="open"
+                    x-transition
+                    class="submenu list-unstyled mt-1"
+                  >
+                    <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                    <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                    <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                  </ul>
+                </li>
+                <li x-data="toggleSubmenu" class="sidebar-item ms-3">
+                  <div @click="toggle" class="sidebar-link">
+                    <span>بلاگ</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                  </div>
+                  <ul
+                    x-show="open"
+                    x-transition
+                    class="submenu list-unstyled mt-1"
+                  >
+                    <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                    <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                    <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <div class="socials">
+              <div class="col-12 social-links mt-5">
+                <a href="#"><i class="lh-0 bi bi-twitter"></i></a>
+                <a href="#"><i class="lh-0 bi bi-facebook"></i></a>
+                <a href="#"><i class="lh-0 bi bi-instagram"></i></a>
+                <a href="#"><i class="lh-0 bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <header
+        x-data="{navShow:false}"
+        @scroll.window="navShow = window.scrollY > 70 ? true : false"
+      >
+        <nav
+          class="navbar navbar-expand-lg navbar-dark"
+          :class="{'scrolled' : navShow}"
+        >
+          <div class="container-fluid">
+            <button @click="toggle" class="navbar-toggler" type="button">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >خانه</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">درباره من</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">نمونه کار</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#"
+                    >تماس با من</a
+                  >
+                </li>
+                <li class="nav-item dropdown has-megamenu">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    data-bs-toggle="dropdown"
+                  >
+                    بلاگ
+                  </a>
+                  <div class="dropdown-menu megamenu" role="menu">
+                    <div class="row g-3">
+                      <div class="col-lg-3 col-6">
+                        <div class="col-megamenu">
+                          <h6 class="title fw-bold">طراحی سایت</h6>
+                          <ul class="list-unstyled lh-lg">
+                            <li><a href="#">برنامه نویسی</a></li>
+                            <li><a href="#">برنامه نویسی</a></li>
+                            <li><a href="#">برنامه نویسی</a></li>
+                            <li><a href="#">برنامه نویسی</a></li>
+                            <li><a href="#">برنامه نویسی</a></li>
+                            <li><a href="#">برنامه نویسی</a></li>
+                          </ul>
+                        </div>
+                        <!-- col-megamenu.// -->
+                      </div>
+                      <!-- end col-3 -->
+                      <div class="col-lg-3 col-6">
+                        <div class="col-megamenu">
+                          <h6 class="title fw-bold">Title Menu Two</h6>
+                          <ul class="list-unstyled lh-lg">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                          </ul>
+                        </div>
+                        <!-- col-megamenu.// -->
+                      </div>
+                      <!-- end col-3 -->
+                      <div class="col-lg-3 col-6">
+                        <div class="col-megamenu">
+                          <h6 class="title fw-bold">Title Menu Three</h6>
+                          <ul class="list-unstyled lh-lg">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                          </ul>
+                        </div>
+                        <!-- col-megamenu.// -->
+                      </div>
+                      <div class="col-lg-3 col-6">
+                        <div class="col-megamenu">
+                          <h6 class="title fw-bold">Title Menu Four</h6>
+                          <ul class="list-unstyled lh-lg">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                          </ul>
+                        </div>
+                        <!-- col-megamenu.// -->
+                      </div>
+                      <!-- end col-3 -->
+                    </div>
+                  </div>
+                  <!-- dropdown-mega-menu.// -->
+                </li>
+              </ul>
+              <div
+                class="auth d-flex align-items-center justify-content-center"
+              >
+                <i
+                  class="search-icon fs-6 me-4 bi bi-search cursor-pointer"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                ></i>
+              </div>
+            </div>
+
+            <div class="auth d-flex align-items-center justify-content-center">
+              <a href="">ورود</a>
+              <a href="">ثبت نام</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </section>
+
+    <section class="info">
+      <div>
+        <h1>محمد رضا یزدان پناه</h1>
+        <h2>برنامه نویس و طراح سایت</h2>
+      </div>
+    </section>
+
+    <section class="blogs">
+      <h2 class="head-line">مقالات</h2>
+      <div class="row container-fluid mt-3 gy-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="post-category">
+              <a href="">برنامه نویسی</a>
+            </div>
+            <div class="img-card">
+              <a href="">
+                <img alt="code" class="card-img-top" src="./images/23564.jpg" />
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="">
+                  <i class="bi bi-calendar text-danger"></i>
+                  <span>۱۵ خرداد ۱۳۹۸</span>
+                </div>
+                <div class="">
+                  <button class="bookmark-btn">
+                    <i class="bi bi-bookmark fs-5"></i>
+                  </button>
+                </div>
+              </div>
+              <a href="">
+                <h4 class="card-title fw-bold my-4 text-dark">
+                  وب اپلیکیشن چیست؟ و نحوه نوشتن آن
+                </h4>
+              </a>
+              <p class="card-text text-muted">
+                از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق
+                تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به
+                برند.
+              </p>
+            </div>
+            <div
+              class="card-footer d-flex justify-content-between align-items-center"
+            >
+              <div class="">
+                <a href="">
+                  <img
+                    src="./images/user.png"
+                    alt="user"
+                    class="img-fluid rounded-circle shadow me-1"
+                    width="40"
+                  />
+                  <span>محمد رضا یزدان پناه</span>
+                </a>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="like me-3 inline-block">
+                  <button class="bookmark-btn">
+                    <i class="bi bi-heart text-danger"></i>
+                  </button>
+                  <span>556</span>
+                </div>
+                <div class="comment">
+                  <i class="bi bi-chat text-danger"></i>
+                  <span>655</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-5">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <span class="page-link">قبلی</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">2</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">بعدی</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container-fluid">
+        <div
+          class="row gy-4 justify-content-center align-items-center text-center"
+        >
+          <div class="col-lg-3"></div>
+
+          <div class="col-lg-5">
+            <p class="mb-0 copyright text-muted">
+              کپی‌رایت © - محمد رضا یزدان پناه - کلیه حقوق محفوظ است.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="social-links">
+              <a href="#"><i class="lh-0 bi bi-twitter"></i></a>
+              <a href="#"><i class="lh-0 bi bi-facebook"></i></a>
+              <a href="#"><i class="lh-0 bi bi-instagram"></i></a>
+              <a href="#"><i class="lh-0 bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="rtl">
+      <div class="btn_popup">
+        <!-- <div class="btn_popup active"> -->
+        <div class="btn_popup_txt d-lg-block d-none">
+          به کمک نیاز دارید؟ <strong>من آنلاینم</strong>
+        </div>
+        <div class="btn_popup_icon"></div>
+      </div>
+      <div class="popup_chat_box">
+        <!-- <div class="popup_chat_box pending active lauch"> -->
+        <div class="popup_heading">
+          <div class="popup_title">شروع مکالمه</div>
+        </div>
+        <!-- /.popup_heading -->
+        <div class="popup_content popup_content_left">
+          <div class="popup_notice">
+            اگر به پشتیبانی نیاز دارید می توانید در واتس اپ پیام بدید
+          </div>
+
+          <div class="popup_content_list">
+            <div class="popup_content_item">
+              <a
+                target="_blank"
+                href="https://web.whatsapp.com/send?phone=989106481103&amp;text=سلام وقت بخیر من از طریق سایت شخصی شما پیام میدم"
+                class="stt stt_online"
+              >
+                <div class="popup_avatar nta-default-avt">
+                  <svg
+                    width="48px"
+                    height="48px"
+                    class="nta-whatsapp-default-avatar"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 512 512"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                  >
+                    <path
+                      style="fill: #ededed"
+                      d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0
+    S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z"
+                    ></path>
+                    <path
+                      style="fill: #55cd6c"
+                      d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662
+    c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234
+    c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z"
+                    ></path>
+                    <path
+                      style="fill: #fefefe"
+                      d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297
+    c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048
+    c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359
+    c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248
+    c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062
+    l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div class="popup_txt">
+                  <div class="member_name">پشتیبان سایت</div>
+                  <div class="member_name2">محمد رضا یزدان پناه</div>
+                  <!-- /.member_name -->
+                  <div class="member_duty">پیام در واتس اپ</div>
+                  <!-- /.member_duty -->
+                </div>
+                <!-- /.popup_txt -->
+              </a>
+            </div>
+          </div>
+          <!-- /.popup_content_list -->
+        </div>
+        <!-- /.popup_content -->
+      </div>
+    </div>
+
+    <div
+      class="modal fade mt-5"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog mt-5">
+        <div class="modal-content">
+          <p class="text-white text-center fw-bold mb-4">
+            برای بستن ESC را بزنید
+          </p>
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="text"
+              name=""
+              placeholder="چیزی برای جستجو بنویسید..."
+              aria-label="Recipient's "
+              aria-describedby="my-addon"
+            />
+            <i
+              class="search-icon fs-6 bi bi-search cursor-pointer"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+  
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-panel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-OXTEbYDqaX2ZY/BOaZV/yFGChYHtrXH2nyXJ372n2Y8abBhrqacCEe+3qhSHtLjy" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- Styles -->
+
+</head>
+<body>
+    <section x-data="toggleSidebar">
+        <section x-cloak class="sidebar scroller" :class="open || 'inactive'">
+            <div class="d-flex align-items-center justify-content-between justify-content-lg-center">
+                <h4 class="fw-bold">yazdansite.ir</h4>
+                <i class="bi bi-x fs-1 d-lg-none cursor-pointer" @click="toggle"></i>
+            </div>
+            <div class="mt-4">
+                <ul class="list-unstyled p-0">
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                        </a>
+                    </li>
+                    <li x-data="toggleSubmenu" class="sidebar-item">
+                        <div @click="toggle" class="sidebar-link">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </div>
+                        <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                            <li class="submenu-item active"><a href="">لیست محصولات</a></li>
+                            <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                            <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                        </ul>
+                    </li>
+                    <li x-data="toggleSubmenu" class="sidebar-item">
+                        <div @click="toggle" class="sidebar-link">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </div>
+                        <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                            <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                            <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                            <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                        </ul>
+                    </li>
+                    <li x-data="toggleSubmenu" class="sidebar-item">
+                        <div @click="toggle" class="sidebar-link">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </div>
+                        <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                            <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                            <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                            <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                        </ul>
+                    </li>
+                    <li x-data="toggleSubmenu" class="sidebar-item">
+                        <div @click="toggle" class="sidebar-link">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </div>
+                        <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                            <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                            <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                            <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                        </ul>
+                    </li>
+                    <li x-data="toggleSubmenu" class="sidebar-item">
+                        <div @click="toggle" class="sidebar-link">
+                            <i class="me-2 bi bi-grid-fill"></i>
+                            <span>داشبورد</span>
+                            <i class="bi bi-chevron-down ms-auto"></i>
+                        </div>
+                        <ul x-show="open" x-transition class="submenu list-unstyled mt-1">
+                            <li class="submenu-item"><a href="">لیست محصولات</a></li>
+                            <li class="submenu-item"><a href="">ایجاد محصول</a></li>
+                            <li class="submenu-item"><a href="">ویرایش محصول</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <section class="main" :class="open || 'active'">
+            <header class="d-flex align-items-center justify-content-between">
+                <div>
+                    <i class="bi bi-justify fs-3 cursor-pointer toggle-sidebar-icon" @click="toggle"></i>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <div class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-red">
+                                9
+                              </span>
+                            <i class="bi bi-envelope fs-4">
+                            </i>
+                        </div>
+
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown  mx-4">
+                        <div class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell fs-4"></i>
+                        </div>
+
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                          <li><a class="dropdown-item" href="#"> لورم ایپسوم </a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <div class="profile d-flex align-items-center" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img width="45" class="img-fluid rounded-circle me-2" src="./images/7.jpg" alt="">
+                            <div>
+                                <h6 class="fs-6 fw-bold text-gray-600 mb-0">یزدان</h6>
+                                <p class="fs-8 text-gray-600 mb-0">سوپر ادمین</p>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <a class="dropdown-item fs-7" href="#">
+                                    <i class="bi bi-person fs-5 me-1"></i>
+                                    پروفایل
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item fs-7" href="#">
+                                    <i class="bi bi-gear fs-6 me-1"></i>
+                                    تنظیمات
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item fs-7" href="#">
+                                    <i class="bi bi-wallet fs-6 me-1"></i>
+                                    حساب کاربری
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item fs-7" href="#">
+                                    <i class="bi bi-box-arrow-left fs-5 me-1"></i>
+                                    خروج
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="content p-2 p-lg-4">
+                <div class="container-fluid">
+                    <div class="row gy-4">
+                        
+                        <div class="col-lg-9">
+                            <!-- Stats -->
+                            <div class="row g-3">
+                                <div class="col-6 col-lg-3">
+                                    <div class="bg-white p-3 d-flex align-items-center justify-content-center rounded">
+                                        <div class="stats-icon bg-purple me-3">
+                                            <i class="bi bi-eye-fill lh-0"></i>
+                                        </div>
+                                        <div class="">
+                                            <h5 class="card-title fs-7 text-muted">نمایش پروفایل</h5>
+                                            <p class="card-text fw-bold mt-2">1221</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <div class="bg-white p-3 d-flex align-items-center justify-content-center rounded">
+                                        <div class="stats-icon bg-blue me-3">
+                                            <i class="bi bi-person-fill lh-0"></i>
+                                        </div>
+                                        <div class="">
+                                            <h5 class="card-title fs-7 text-muted">نمایش پروفایل</h5>
+                                            <p class="card-text fw-bold mt-2">1221</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <div class="bg-white p-3 d-flex align-items-center justify-content-center rounded">
+                                        <div class="stats-icon bg-green me-3">
+                                            <i class="bi bi-person-plus-fill lh-0"></i>
+                                        </div>
+                                        <div class="">
+                                            <h5 class="card-title fs-7 text-muted">نمایش پروفایل</h5>
+                                            <p class="card-text fw-bold mt-2">1221</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <div class="bg-white p-3 d-flex align-items-center justify-content-center rounded">
+                                        <div class="stats-icon bg-red me-3">
+                                            <i class="bi bi-bookmark-dash-fill lh-0"></i>
+                                        </div>
+                                        <div class="">
+                                            <h5 class="card-title fs-7 text-muted">نمایش پروفایل</h5>
+                                            <p class="card-text fw-bold mt-2">1221</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <!-- Chart -->
+
+                            <div class="row w-100 m-0">
+                                <div class="col-12 bg-white rounded mt-4 p-4">
+                                    <div class="">لورم ایپسوم</div>
+                                    <div class="">
+                                    <div id="chartdiv" style="height: 500px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progress & Comments -->
+
+                            <div class="row w-100 m-0 g-4">
+
+                            <!-- Progress -->
+                                <div class="col-lg-4 p-0 px-2">
+                                   <div class="bg-white p-4 rounded">
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold">لورم ایپسوم متن</h5>
+                                    </div>
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-blue" style="width: 25%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                        </div>
+                                        <p class="fs-7 text-muted mt-2">لورم ایپسوم متن ساختگی</p>
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" style="width: 33%" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">33%</div>
+                                        </div>
+                                        <p class="fs-7 text-muted mt-2">لورم ایپسوم متن ساختگی</p>
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-purple" style="width: 85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                                        </div>
+                                        <p class="fs-7 text-muted mt-2">لورم ایپسوم متن ساختگی</p>
+                                        <hr>
+                                    </div>
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-red" style="width: 77%" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100">77%</div>
+                                        </div>
+                                        <p class="fs-7 text-muted mt-2">لورم ایپسوم متن ساختگی</p>
+                                    </div>
+                                   </div>
+                                </div>
+
+                            <!-- Comments -->
+                                <div class="col-lg-8 p-0">
+                                   <div class="bg-white p-4 rounded">
+                                    <div class="mb-4">
+                                        <h5 class="fw-bold">آخرین کامنت ها</h5>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover align-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th>تصویر</th>
+                                                    <th>نام کاربری</th>
+                                                    <th>کامنت</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img width="50" class="img-fluid rounded-circle" src="./images/4.jpg">
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم متن ساختگی با تولید سادگی
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <img width="50" class="img-fluid rounded-circle" src="./images/5.jpg">
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <img width="50" class="img-fluid rounded-circle" src="./images/7.jpg">
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم
+                                                    </td>
+                                                    <td class="text-muted">
+                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت.
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3">
+
+                            <!-- Profile -->
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-lg-center justify-content-start rounded">
+                                <img width="70" class="img-fluid rounded-circle me-4" src="./images/7.jpg" alt="">
+                                <div class="">
+                                    <p class="card-text fw-bold mb-1 fs-5">یزدان</p>
+                                    <h5 class="card-title fs-6 text-muted dir-ltr">@yazdan</h5>
+                                </div>
+                            </div>
+
+                            <!-- Users -->
+
+                            <div class="bg-white mt-4 p-4 rounded">
+
+                                <div class="mb-4">
+                                    <h5 class="fw-bold">لورم ایپسوم متن</h5>
+                                </div>
+
+                                <div class="py-2 d-flex align-items-center justify-content-start rounded">
+                                    <img width="55" class="img-fluid rounded-circle me-4" src="./images/7.jpg" alt="">
+                                    <div class="">
+                                        <p class="card-text fw-bold mb-1 fs-6">یزدان</p>
+                                        <h5 class="card-title fs-7 text-muted dir-ltr">@yazdan</h5>
+                                    </div>
+                                </div>
+                                <div class="py-2 d-flex align-items-center justify-content-start rounded">
+                                    <img width="55" class="img-fluid rounded-circle me-4" src="./images/7.jpg" alt="">
+                                    <div class="">
+                                        <p class="card-text fw-bold mb-1 fs-6">یزدان</p>
+                                        <h5 class="card-title fs-7 text-muted dir-ltr">@yazdan</h5>
+                                    </div>
+                                </div>
+                                <div class="py-2 d-flex align-items-center justify-content-start rounded">
+                                    <img width="55" class="img-fluid rounded-circle me-4" src="./images/7.jpg" alt="">
+                                    <div class="">
+                                        <p class="card-text fw-bold mb-1 fs-6">یزدان</p>
+                                        <h5 class="card-title fs-7 text-muted dir-ltr">@yazdan</h5>
+                                    </div>
+                                </div>
+                                <div class="py-2 d-flex align-items-center justify-content-start rounded">
+                                    <img width="55" class="img-fluid rounded-circle me-4" src="./images/7.jpg" alt="">
+                                    <div class="">
+                                        <p class="card-text fw-bold mb-1 fs-6">یزدان</p>
+                                        <h5 class="card-title fs-7 text-muted dir-ltr">@yazdan</h5>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-primary mt-3" type="button">نمایش کاربران</button>
+                                </div>
+
+                            </div>
+
+                            <!-- Chart2 -->
+
+                            <div class="bg-white mt-4 p-4 rounded">
+
+                                <div class="mb-4">
+                                    <h5 class="fw-bold">لورم ایپسوم متن</h5>
+                                </div>
+
+                                <div id="chartdiv2" style="height: 300px;"></div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!-- alpine -->
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+    <script src="./js/alpineComponent.js"></script>
+
+    <!-- chart -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="./js/chart/chart1.js"></script>
+    <script src="./js/chart/chart2.js"></script>
+
+</body>
+</html>
